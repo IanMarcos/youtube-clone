@@ -1,14 +1,17 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from 'layouts/Layout';
+import Home from 'pages/Home';
+import SearchResults from 'pages/SearchResults';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path='/results' element={<SearchResults />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>
+);
 
-  return (
-    <div className="App">
-    </div>
-  )
-}
-
-export default App
+export default App;
